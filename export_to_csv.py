@@ -125,38 +125,15 @@ if __name__ == '__main__':
 
     conn.close()
 
+    #Write the CSV File with the name of the columns from IATI Standard
     counter = 0
-
     with open('IATI_CSV.csv', 'w') as csvfile:
         #filewriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         filewriter = csv.writer(csvfile, quotechar='"', delimiter=',',quoting=csv.QUOTE_ALL, skipinitialspace=True)
         filewriter.writerow(['Activity Identifier',	 'Activity Default Currency',	 'Activity Default Language',	 'Humanitarian',	 'Activity Title',	 'Activity Description (General)',	 'Activity Description (Objectives)',	 'Activity Description (Target Groups)',	 'Activity Description (Others)',	 'Activity Status',	 'Actual Start Date',	 'Actual End Date',	 'Planned Start Date',	 'Planned End Date',	 'Participating Organisation Role',	 'Participating Organisation Type',	 'Participating Organisation Name',	 'Participating Organisation Identifier',	 'Recipient Country Code',	 'Recipient Country Percentage',	 'Recipient Region Code',	 'Recipient Region Percentage',	 'Sector Vocabulary',	 'Sector Code',	 'Sector Percentage',	 'Policy Marker Vocabulary',	 'Policy Marker Code',	 'Policy Marker Significance',	 'Activity Scope',	 'Budget Type',	 'Budget Status',	 'Budget Period Start',	 'Budget Period End',	 'Budget Value',	 'Budget Value Date',	 'Budget Currency',	 'Related Activity Identifier',	 'Related Activity Type',	 'Contact Type',	 'Contact Organization',	 'Contact Department',	 'Contact Person Name',	 'Contact Job Title',	 'Contact Telephone',	 'Contact Email',	 'Contact Website',	 'Contact Mailing Address'
     ])
-
+        #Fill up the CSV by adding each column
         max_counter = len(ID)
         while counter < max_counter:
             filewriter.writerow((ID2[counter], currency[counter],'','', WFL2[counter],description[counter],objectives[counter],'','',status2[counter],wfl2_start_date[counter],wfl2_end_date[counter],'','',org_role,stakeholder_type[counter],stakeholder[counter],'',countrycode[counter],percentage_recipient_country[counter],'','',policy_marker_vocabulary,policy_marker_code,'','','','','','',budget_status[counter],budget_start_date[counter],budget_end_date[counter],budget[counter],budget_start_date[counter] ))
             counter = counter +1
-
-
-#cursor.execute("INSERT INTO table VALUES (%s, %s, %s)", (var1, var2, var3))
-
-#Activity_Identifier REQUIRED //equals to Org Identifier + - + WFL2 ID
-#Activity_Default_Currency optional
-#Activity_Default_Language optional
-#Humanitarian optional
-#Activity_Title REQUIRED
-#Activity_Description_General REQUIRED_NOT_HERE
-#Activity_Description_Objectives optional
-#Activity_Description_Target_Groups optional
-#Activity_Description_Others optional
-#Activity__Status REQUIRED_NOT_HERE
-#Actual_Start_Date REQUIRED
-#Actual_End_Date REQUIRED
-#Planned_Start_Date optional
-#Planned_End_Date optional
-#Participating_Organisation_Role REQUIRED
-#Participating_Organisation_Type REQUIRED_NOT_HERE
-#Participating_Organisation_Name REQUIRED
-#Participating_Organisation_Identifier REQUIRED
-#Recipient_Country_Code #REQUIRED
