@@ -19,8 +19,8 @@ You are now connected to the Database Management System.
 You need to create your database and give all the access to the user you want:
 ```bash
 CREATE DATABASE demo;
-ALTER ROLE postgres WITH PASSWORD 'postgres'
-GRANT ALL PRIVILEGES ON DATABASE demo TO postgres
+ALTER ROLE postgres WITH PASSWORD 'postgres';
+GRANT ALL PRIVILEGES ON DATABASE demo TO postgres;
 ```
 Now you need to go back to your session to dump the data:
 ```bash
@@ -29,7 +29,8 @@ pg_restore -c -U postgres -d demo -v SQL_Dump.tar -W
 If you are getting an error, try to restart the postgres service : /etc/init.d/postgresql restart
 
 
-To execute the file you just need to go to your terminal in the right repository and execute the main file and put an organisation name as parameter, example:
+To execute the file you need to have python3 installed.
+Then you just need to execute the main file and put an organisation name as parameter, example:
 ```bash
 python3 export_to_csv TolaData
 ```
