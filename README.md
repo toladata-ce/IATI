@@ -15,12 +15,12 @@ To connect to postgres:
 sudo -u postgres psql
 ```
 
-You are now connected to the Database Management System
+You are now connected to the Database Management System.
 You need to create your database and give all the access to the user you want:
 ```bash
 CREATE DATABASE demo;
 ALTER ROLE postgres WITH PASSWORD 'postgres'
-GRANT ALL PRIVILEGES ON DATABASE demo TO 'postgres'
+GRANT ALL PRIVILEGES ON DATABASE demo TO postgres
 ```
 Now you need to go back to your session to dump the data:
 ```bash
@@ -33,6 +33,9 @@ To execute the file you just need to go to your terminal in the right repository
 ```bash
 python3 export_to_csv TolaData
 ```
+You can filter the workflowlevel1 of the particular organisation by adding the condition to all the SQL queries.
+Example : "  where c.name={} and b.name='Humanitarian Response to the Syrian Crisis'   "
+
 
 For production use, the main script needs to be pointed to a production database.
 
