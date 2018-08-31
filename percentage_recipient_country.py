@@ -1,4 +1,5 @@
 #This function allows to fill in the Recipient Country Percentage column in the csv file
+#For one given activity, we must have the list of the distinct countries and their percentage
 
 
 def percentage_recipient_country(countries,ID):

@@ -47,8 +47,9 @@ if __name__ == '__main__':
     #Description is nearly empty in TolaData so I fill up with dummy data if it is empty as it is a required field
     cur.execute("select a.description as workflowlevel2 from workflow_workflowlevel2 a join workflow_workflowlevel1 b on b.id=a.workflowlevel1_id join workflow_organization c on b.organization_id=c.id join workflow_stakeholder_workflowlevel1 d on d.workflowlevel1_id=b.id join workflow_stakeholder e on e.id=d.stakeholder_id where c.name={}order by a.id".format(org))
     description = [row[0] for row in cur.fetchall()]
+
     for i in range(len(ID2)):
-        if(description[i]==''):
+        if(description[i]==None or description[i]==''):
             description[i]='add description'+str(i)
     delete_replicate(ID2, description)
 
